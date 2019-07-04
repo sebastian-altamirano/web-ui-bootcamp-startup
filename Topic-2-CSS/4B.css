@@ -119,3 +119,36 @@ a:visited {
   display: block;
   font-size: 1.2rem;
 }
+
+/* --------------------------------- TABLET --------------------------------- */
+
+@media screen and (max-width: 800px) {
+  .header h1 {
+    text-align: center;
+  }
+
+  .introduction {
+    margin: 0 5vw;
+  }
+
+  .gallery-row .gallery-column {
+    width: 96%;
+  }
+}
+
+/* ------------------------------- SMARTPHONE ------------------------------- */
+
+@media screen and (max-width: 600px) {
+  .next-page-floating-button {
+    bottom: 0;
+    padding: 1rem 0;
+    top: initial;
+    transform: initial;
+    width: 100%;
+  }
+
+  .gallery-image figure figcaption {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+}
