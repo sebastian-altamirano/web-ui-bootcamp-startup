@@ -1,0 +1,16 @@
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+aside,
+footer,
+header,
+nav {
+  background-color: red;
+}
+
+footer,
+header {
+  text-align: center;
+}

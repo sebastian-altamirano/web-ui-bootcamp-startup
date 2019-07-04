@@ -1,0 +1,29 @@
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+aside,
+footer,
+header,
+nav {
+  background-color: red;
+}
+
+footer,
+header {
+  text-align: center;
+}
+
+.header {
+  font-size: 46px;
+}
+
+.footer,
+.sidebar {
+  font-size: 10px;
+}
+
+.navigation {
+  font-size: 12px;
+}
