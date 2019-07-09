@@ -1,0 +1,11 @@
+body {
+  margin: 1rem !important;
+}
+
+section {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
