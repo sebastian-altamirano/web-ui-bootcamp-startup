@@ -36,6 +36,8 @@ async function httpGetJSON(url, callback) {
 function initialization(event) {
   // Shows the hidden section element.
   sectionEl.classList.remove('hidden');
+  // Disable the button to get a new joke till all the jokes have been fetched.
+  getChuckJokeBtn.disabled = true;
 }
 
 function sayHello() {
@@ -43,14 +45,36 @@ function sayHello() {
 }
 
 // Writes a random Chuck Norris joke in the h1 element from the section element
-// every time its called.
-function getChuckJoke() {
-  httpGetJSON('http://api.icndb.com/jokes/random', data => {
-    if (data.type === 'success')
-      sectionEl.querySelector('h1').innerHTML = data.value.joke;
-    else sectionEl.style.color = 'red';
-  });
-}
+// every time the "Tell me a Chuck Norris joke" button is clicked.
+httpGetJSON(`http://api.icndb.com/jokes`, data => {
+  if (data.type === 'success') {
+    // Backup all the jokes...
+    const JOKES = data.value;
+    // ...and enable the button to get a new joke.
+    getChuckJokeBtn.innerHTML = 'Tell me a Chuck Norris joke';
+    getChuckJokeBtn.disabled = false;
+    // Add a click event listener to the button so that every time its clicked
+    // a new joke is shown.
+    getChuckJokeBtn.addEventListener('click', () => {
+      // Generate a random valid index for JOKES.
+      const randomJokeNumber = Math.round(Math.random() * JOKES.length);
+      // If the jokes have been exhausted indicate so.
+      if (!JOKES.length)
+        sectionEl.querySelector('h1').innerHTML =
+          "You've exhausted all the jokes!";
+      // Otherwise...
+      else {
+        // ...show a random joke...
+        sectionEl.querySelector('h1').innerHTML = JOKES[randomJokeNumber].joke;
+        // ...and then remove it from the JOKES array using swap and remove.
+        JOKES[randomJokeNumber] = JOKES[JOKES.length - 1];
+        JOKES.pop();
+      }
+    });
+  }
+  // If a server error occurs turn the section content red.
+  else sectionEl.style.color = 'red';
+});
 
 // ------------------------------ EVENT HANDLERS ---------------------------- \\
 
@@ -59,5 +83,3 @@ function getChuckJoke() {
 window.addEventListener('load', initialization);
 
 sayHelloBtn.addEventListener('click', sayHello);
-
-getChuckJokeBtn.addEventListener('click', getChuckJoke);
