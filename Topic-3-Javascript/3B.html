@@ -19,10 +19,22 @@
   </head>
   <body>
     <main>
+      <section role="region" aria-labelledby="repo-search">
+        <h1 id="repo-search">GitHub repositories</h1>
+        <label for="search-repository">Search: </label>
+        <input
+          type="text"
+          placeholder="Search a repository..."
+          id="search-repository"
+        />
+      </section>
       <section>
+        <div class="api-error">
+          <p></p>
+        </div>
         <ul></ul>
       </section>
     </main>
-    <script src="3B.js"></script>
+    <script type="module" src="3B.js"></script>
   </body>
 </html>
