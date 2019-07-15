@@ -2,10 +2,11 @@
 
 // Contains the listeners asocciated to an event through "on" method from
 // EventEmitter instances (or instances derived from EventEmitter).
-let _listeners = {};
+const _listeners = {};
 
 class EventEmitter {
   constructor() {}
+
   // Adds a listener to an event.
   // INPUT:
   // <-- eventName: string
@@ -22,6 +23,7 @@ class EventEmitter {
     if (_listeners[eventName] === undefined) _listeners[eventName] = [];
     _listeners[eventName].push(callback);
   }
+
   // Emits an event, calling every listener associated to it in consequence.
   // INPUT:
   // <-- eventName: string
@@ -34,6 +36,7 @@ class EventEmitter {
       _listeners[eventName].forEach(callback => callback());
     else throw new RangeError(`${eventName} don't have any listeners to call.`);
   }
+
   // Removes a listener from an event.
   // INPUT:
   // <-- eventName: string
@@ -70,15 +73,19 @@ class Movie extends EventEmitter {
     this.duration = duration;
     this.cast = [];
   }
+
   play() {
     this.emit('play');
   }
+
   pause() {
     this.emit('pause');
   }
+
   resume() {
     this.emit('resume');
   }
+
   addCast(cast) {
     this.cast = this.cast.concat(cast);
   }
@@ -90,6 +97,16 @@ class Actor {
   constructor(name, age) {
     this.name = name;
     this.age = age;
+  }
+}
+
+// Logger class
+
+class Logger {
+  constructor() {}
+
+  log(info) {
+    console.log(info);
   }
 }
 
@@ -105,3 +122,23 @@ const otherCast = [
 
 terminator.addCast(arnold);
 terminator.addCast(otherCast);
+
+const logger = new Logger();
+
+function logThatPlayEmitted() {
+  logger.log("output: The 'play' event has been emitted");
+}
+
+const eventEmitter = new EventEmitter();
+eventEmitter.on('play', logThatPlayEmitted);
+
+// It could also be used like this if Logger inherited EventEmitter...
+// logger.on("play", logThatPlayEmitted);
+
+// ...or like this if EventEmitter methods were static (and heritage wouldn't be
+// necessary to use it).
+// EventEmitter.on('play', logThatPlayEmitted);
+
+terminator.play();
+
+eventEmitter.off('play', logThatPlayEmitted);
