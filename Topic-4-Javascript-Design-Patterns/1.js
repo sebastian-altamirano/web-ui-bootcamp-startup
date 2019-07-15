@@ -12,3 +12,10 @@ class Movie {
 const antMan = new Movie('Ant-Man', 2015, 118);
 const civilWar = new Movie('Captain America: Civil War', 2016, 148);
 const infinityWar = new Movie('Avengers: Infinity War', 2018, 160);
+
+class Actor {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
