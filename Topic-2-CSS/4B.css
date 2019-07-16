@@ -1,0 +1,154 @@
+/* -------------------------------- DESKTOP --------------------------------- */
+
+/* Global presets */
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+/* .header */
+
+.header h1 {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+/* .introduction */
+
+.introduction {
+  margin-left: 35vw;
+  margin-right: 15vw;
+}
+
+.introduction p {
+  font-size: 1.2rem;
+}
+
+.introduction a {
+  font-weight: bold;
+}
+
+/* .next-page-floating-button */
+
+.next-page-floating-button {
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  padding: 5rem 1rem;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  z-index: 2;
+}
+
+/* .gallery-row */
+
+.gallery-row,
+.gallery-column {
+  display: flex; /* Could prefix it, but wouldn't be able to use wrap anyways */
+}
+
+.gallery-row {
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+/* .gallery-column */
+
+.gallery-column {
+  align-items: stretch;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  width: 31%;
+}
+
+/* .gallery-image */
+
+.gallery-image {
+  margin: 1rem 0;
+}
+
+.gallery-image img {
+  width: 100%;
+}
+
+.gallery-image figure {
+  margin: 0;
+  position: relative;
+}
+
+.gallery-image figure figcaption {
+  background-color: rgba(245, 245, 245, 0.9);
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  font-weight: bold;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.gallery-image figure:hover figcaption {
+  transform: scaleY(1);
+}
+
+/* .gallery-image-url */
+
+.gallery-image-url {
+  color: gray;
+  display: block;
+  font-size: 1.2rem;
+}
+
+/* --------------------------------- TABLET --------------------------------- */
+
+@media screen and (max-width: 800px) {
+  .header h1 {
+    text-align: center;
+  }
+
+  .introduction {
+    margin: 0 5vw;
+  }
+
+  .gallery-row .gallery-column {
+    width: 96%;
+  }
+}
+
+/* ------------------------------- SMARTPHONE ------------------------------- */
+
+@media screen and (max-width: 600px) {
+  .next-page-floating-button {
+    bottom: 0;
+    padding: 1rem 0;
+    top: initial;
+    transform: initial;
+    width: 100%;
+  }
+
+  .gallery-image figure figcaption {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+}

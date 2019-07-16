@@ -1,0 +1,43 @@
+/* Font size could be overwritten in many ways, one is the used, another one is:
+ * html * {
+ *   font-size: 14px !important;
+ * }
+*/
+html [class] {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+aside,
+footer,
+header,
+nav {
+  background-color: red;
+}
+
+footer,
+header {
+  text-align: center;
+}
+
+.header {
+  font-size: 46px;
+}
+
+.footer,
+.sidebar {
+  font-size: 10px;
+}
+
+.navigation {
+  font-size: 12px;
+}
+
+[class$='r'] {
+  background-color: magenta;
+}
+
+/* "!important" can be used to have more specifity over inline styles. */
+.oh-no-inline-styles {
+  background-color: green !important;
+}

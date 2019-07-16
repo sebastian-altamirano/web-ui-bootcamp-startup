@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>CSS - Specificity - 2C</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!-- Roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="2C.css" />
+  </head>
+  <body>
+    <header class="header oh-no-inline-styles" style="background:red">
+      This is the root header
+    </header>
+    <nav class="navigation">
+      This is a nav
+    </nav>
+    <section class="content">
+      <header class="header">
+        This is the header of the section
+      </header>
+      <article>
+        This is an article
+      </article>
+      <footer class="footer">
+        This is the footer of the section
+      </footer>
+    </section>
+    <aside class="sidebar">
+      This is the aside
+    </aside>
+    <footer class="footer">
+      This is the root footer
+    </footer>
+  </body>
+</html>
