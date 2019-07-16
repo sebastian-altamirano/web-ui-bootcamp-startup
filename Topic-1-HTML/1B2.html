@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML Basics - 1B.2</title>
+  </head>
+  <body>
+    <header role="banner">
+      <h1>HTML - Exercise 1B.2</h1>
+    </header>
+    <main role="main">
+      <h2>Image</h2>
+      <img src="https://via.placeholder.com/160" alt="Placeholder" /><br />
+      <h2>Video</h2>
+      <video controls>
+        <source src="../assets/video.mp4" type="video/mp4" />
+        <track
+          src="video-captions.vtt"
+          kind="captions"
+          srclang="en"
+          label="english_caption"
+        />
+        <track
+          src="video-audio_descriptions.vtt"
+          kind="descriptions"
+          srclang="en"
+          label="english_description"
+        />
+        <!-- More formats could be added if available. -->
+        <p>Sorry, your browser doesn't support HTML5 video.</p></video
+      ><br />
+      <h2>Audio</h2>
+      <audio controls>
+        <source src="../assets/audio.mp3" type="audio/mp3" />
+        <p>Sorry, your browser doesn't support HTML5 audio.</p>
+      </audio>
+    </main>
+  </body>
+</html>

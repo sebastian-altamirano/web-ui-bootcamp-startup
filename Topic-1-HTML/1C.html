@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML Basics - 1C</title>
+  </head>
+  <body>
+    <header role="banner">
+      <h1>HTML - Exercise 1C</h1>
+    </header>
+    <main role="main">
+      <form action="" method="post">
+        <!-- First name -->
+        <div>
+          <label for="name">First name</label>
+          <input
+            type="text"
+            required
+            placeholder="Your name"
+            name="name"
+            id="name"
+          />
+        </div>
+        <!-- Last name -->
+        <div>
+          <label for="name">Last name</label>
+          <input
+            type="text"
+            required
+            placeholder="Your last name"
+            name="last-name"
+            id="last-name"
+          />
+        </div>
+        <!-- Email -->
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            required
+            placeholder="example@domain.com"
+            name="email"
+            id="email"
+          />
+        </div>
+        <!-- Birthday -->
+        <div>
+          <label for="birthday">Birthday</label>
+          <input type="date" required id="birthday" />
+        </div>
+        <!-- Favourite sport -->
+        <div>
+          <label for="favourite-sport">Favourite sport</label>
+          <select required name="favourite-sport" id="favourite-sport">
+            <option value="">Select your favourite sport</option>
+            <option value="basketball">Basketball</option>
+            <option value="boxing">Boxing</option>
+            <option value="cycling">Cycling</option>
+            <option value="football">Football</option>
+            <option value="gymnastics">Gymnastics</option>
+            <option value="rowing">Rowing</option>
+            <option value="surfing">Surfing</option>
+            <option value="tenis">Tenis</option>
+          </select>
+        </div>
+        <!-- Biography -->
+        <div>
+          <label for="biography">Biography</label>
+          <textarea
+            rows="4"
+            required
+            placeholder="Write a small bio about yourself"
+            maxlength="400"
+            id="biography"
+          ></textarea>
+        </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Clear form</button>
+      </form>
+    </main>
+  </body>
+</html>
