@@ -1,0 +1,42 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  height: 100vh;
+}
+
+section {
+  box-sizing: border-box;
+  float: left;
+  max-height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 0.5rem;
+  text-align: center;
+  width: 50%;
+}
+
+section[role='region'] {
+  overflow: hidden;
+}
+
+section ul {
+  padding: 0;
+  text-align: left;
+}
+
+section ul li {
+  list-style: none;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+.api-error {
+  display: none;
+  font-size: 3rem;
+  height: 100%;
+}

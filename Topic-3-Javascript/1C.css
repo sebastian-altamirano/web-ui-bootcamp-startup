@@ -1,0 +1,42 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 1rem !important;
+}
+
+fieldset legend {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+}
+
+fieldset input {
+  margin-left: 0.25rem;
+}
+
+fieldset div {
+  margin: 0.25rem;
+}
+
+fieldset + button {
+  margin: 1rem 0;
+}
+
+input#palindrome-string {
+  width: 50ch;
+}
+
+/* .result */
+
+.result {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.result q {
+  font-style: italic;
+  margin-right: 0.5rem;
+}

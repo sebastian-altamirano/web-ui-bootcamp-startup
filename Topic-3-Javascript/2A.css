@@ -1,0 +1,18 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 1rem !important;
+}
+
+section {
+  opacity: 0;
+  text-align: center;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+}

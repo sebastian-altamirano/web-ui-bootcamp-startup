@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript - Exercise 1C</title>
+    <link rel="stylesheet" href="1C.css" />
+    <!-- Roboto font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    />
+    <!-- Normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+  </head>
+  <body>
+    <header role="banner">
+      <h1>JS - Exercise 1C</h1>
+    </header>
+    <!-- isPalindrome interface -->
+    <main role="main">
+      <section role="region" aria-labelledby="is-palindrome-heading">
+        <h2 id="is-palindrome-heading">isPalindrome interface</h2>
+        <form>
+          <fieldset>
+            <legend>
+              Enter a word or a phrase to know if it's a palindrome (a string
+              that reads the same backwards as forwards). E.g: "Eva, can I see
+              bees in a cave?"
+            </legend>
+            <label for="palindrome-string">A phrase or word:</label>
+            <input
+              type="text"
+              title="The phrase or word must be in english. Numbers are not accepted."
+              required
+              placeholder="E.g: Eva, can I see bees in a cave?"
+              name="palindrome"
+              id="palindrome-string"
+            />
+          </fieldset>
+          <button type="submit" name="palindrome">It's a palindrome?</button>
+          <button type="reset" name="palindrome">Clear the input</button>
+        </form>
+        <div style="display: none;" class="result">
+          <p></p>
+        </div>
+      </section>
+      <!-- getDayAfter interface -->
+      <section role="region" aria-labelledby="get-day-after-heading">
+        <h2 id="get-day-after-heading">getDayAfter interface</h2>
+        <form>
+          <fieldset>
+            <legend>
+              Specify a day and a number to know what day it's after that number
+              of days have passed from the specified day. E.g: "Monday" and "4"
+              return "Friday".
+            </legend>
+            <div>
+              <label for="day-after-day">Initial day:</label>
+              <select required id="day-after-day">
+                <option value="">Please, select a day:</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+              </select>
+            </div>
+            <div>
+              <label for="day-after-number">
+                Number of days that have passed:
+              </label>
+              <input
+                type="number"
+                required
+                placeholder="E.g: 4"
+                name="day-after"
+                min="0"
+                id="day-after-number"
+              />
+            </div>
+          </fieldset>
+          <button type="submit" name="day-after">Tell me the day!</button>
+          <button type="reset" name="day-after">Clear the inputs</button>
+        </form>
+        <div style="display: none;" class="result">
+          <p>4 days after Monday it'll be Friday</p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="1C.js"></script>
+  </body>
+</html>

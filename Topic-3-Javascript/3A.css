@@ -1,0 +1,25 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 1rem !important;
+}
+
+section {
+  height: 60vh;
+  line-height: 60vh;
+  opacity: 0;
+  text-align: center;
+}
+
+section h1 {
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+}
