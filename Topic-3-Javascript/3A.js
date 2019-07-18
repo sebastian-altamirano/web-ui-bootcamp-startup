@@ -38,6 +38,7 @@ async function httpGetJSON(url, callback) {
 function initialization(event) {
   // Shows the hidden section element.
   sectionEl.classList.remove('hidden');
+  sectionEl.classList.add('fade-in');
   // Disable the button to get a new joke till all the jokes have been fetched.
   getChuckJokeBtn.disabled = true;
 }

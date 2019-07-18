@@ -24,6 +24,17 @@ function isPalindromeTestCases() {
     );
   }
   try {
+    isPalindrome('     ');
+  } catch (error) {
+    runTestCase(
+      function isPalindrome() {
+        return error.message;
+      },
+      { phrase: '     ' },
+      `"phrase" parameter can't be an empty string`
+    );
+  }
+  try {
     isPalindrome(123);
   } catch (error) {
     runTestCase(
@@ -40,6 +51,7 @@ function getDayAfterTestCases() {
   // Test that the function works as expected with valid values.
   runTestCase(getDayAfter, { day: 'Monday', daysAfter: 4 }, 'Friday');
   runTestCase(getDayAfter, { day: 'saturday', daysAfter: 0 }, 'Saturday');
+  runTestCase(getDayAfter, { day: 'Friday', daysAfter: 28 }, 'Friday');
   // runTestCase(getDayAfter, { day: 'Sunday', daysAfter: -6 }, 'Monday');
   // runTestCase(getDayAfter, { day: 'Monday', daysAfter: -29 }, 'Sunday');
   // Test that the function produces exceptions when its input has wrong types.
@@ -62,7 +74,7 @@ function getDayAfterTestCases() {
         return error.message;
       },
       { day: 'sunday', daysAfter: 'monday' },
-      `The parameter daysAfter must be of type integer, but instead it's of type string.`
+      `The parameter daysAfter must be of type natural number, but instead it's of type string.`
     );
   }
   try {
@@ -73,7 +85,18 @@ function getDayAfterTestCases() {
         return error.message;
       },
       { day: 'sunday', daysAfter: 10.1 },
-      `The parameter daysAfter must be of type integer, but instead it's of type number.`
+      `The parameter daysAfter must be of type natural number, but instead it's of type number.`
+    );
+  }
+  try {
+    getDayAfter('sunday', -1);
+  } catch (error) {
+    runTestCase(
+      function getDayAfter() {
+        return error.message;
+      },
+      { day: 'sunday', daysAfter: -1 },
+      `The parameter daysAfter must be of type natural number, but instead it's of type number.`
     );
   }
   try {

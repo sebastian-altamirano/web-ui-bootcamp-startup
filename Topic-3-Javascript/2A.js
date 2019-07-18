@@ -13,6 +13,7 @@ function initialization(event) {
   // Shows the hidden section element.
   const sectionEl = document.querySelector('section');
   sectionEl.classList.remove('hidden');
+  sectionEl.classList.add('fade-in');
 }
 
 function sayHello() {

@@ -12,16 +12,10 @@
 // - An alert is displayed when "phrase" parameter is not of type String.
 
 export default function isPalindrome(phrase) {
-  // Check that "phrase" parameter is of type string...
+  // Check that "phrase" parameter is of type string.
   const phraseType = typeof phrase;
   if (phraseType !== 'string') {
     const error = new TypeError(`The type: ${phraseType} isn't valid`);
-    alert(error.message);
-    throw error;
-  }
-  // ...and not empty.
-  else if (phrase.length === 0) {
-    const error = new RangeError(`"phrase" parameter can't be an empty string`);
     alert(error.message);
     throw error;
   }
@@ -34,6 +28,12 @@ export default function isPalindrome(phrase) {
   unformattedPhrase = unformattedPhrase
     .replace(/[^a-zA-Z0-9]/g, '')
     .toLowerCase();
+  // Check that the unformatted phrase is not an empty string.
+  if (unformattedPhrase.length === 0) {
+    const error = new RangeError(`"phrase" parameter can't be an empty string`);
+    alert(error.message);
+    throw error;
+  }
   // ...then compare its characters end to end to determine if it's a
   // palindrome.
   for (let i = 0; i < Math.floor(unformattedPhrase.length / 2); i += 1)

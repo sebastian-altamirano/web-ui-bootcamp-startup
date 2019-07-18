@@ -31,13 +31,14 @@ export default function getDayAfter(day, daysAfter) {
     alert(error.message);
     throw error;
   }
-  // Check that "daysAfter" parameter is of type Number and an integer.
+  // Check that "daysAfter" parameter is of type Number and natural.
   else if (
     daysAfterType !== 'number' ||
     daysAfter !== parseInt(daysAfter, 10) ||
-    Number.isNaN(daysAfter)
+    Number.isNaN(daysAfter) ||
+    daysAfter < 0
   ) {
-    const error = getTypeError('daysAfter', daysAfterType, 'integer');
+    const error = getTypeError('daysAfter', daysAfterType, 'natural number');
     alert(error.message);
     throw error;
   }
@@ -62,5 +63,5 @@ export default function getDayAfter(day, daysAfter) {
   // Math.abs(days.indexOf(capitalizedDay) + daysAfter + days.length))
   // % days.length;
   // when daysAfter < 0.
-  return days[days.indexOf(capitalizedDay) + daysAfter];
+  return days[(days.indexOf(capitalizedDay) + daysAfter) % days.length];
 }

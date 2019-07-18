@@ -4,9 +4,15 @@ body {
 }
 
 section {
+  opacity: 0;
   text-align: center;
 }
 
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
 .hidden {
-  display: none;
+  visibility: hidden;
 }
