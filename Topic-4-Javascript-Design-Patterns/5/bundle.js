@@ -28,15 +28,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// Contains the listeners asocciated to an event through "on" method from
-// EventEmitter instances (or instances derived from EventEmitter).
-var _listeners = {};
-
 var EventEmitter =
 /*#__PURE__*/
 function () {
   function EventEmitter() {
     _classCallCheck(this, EventEmitter);
+
+    this.listeners = Object.create(null);
   } // Adds a listener to an event.
   // INPUT:
   // <-- eventName: string
@@ -54,23 +52,23 @@ function () {
   _createClass(EventEmitter, [{
     key: "on",
     value: function on(eventName, callback) {
-      if (_listeners[eventName] === undefined) _listeners[eventName] = [];
-
-      _listeners[eventName].push(callback);
+      if (this.listeners[eventName] === undefined) this.listeners[eventName] = [];
+      var eventListeners = this.listeners[eventName];
+      if (!eventListeners.includes(callback)) eventListeners.push(callback);
     } // Emits an event, calling every listener associated to it in consequence.
     // INPUT:
     // <-- eventName: string
     // The event from which to call its listeners.
     // OUTPUT:
-    // --> RangeError
-    // The event has no listeners to call.
+    // --> void
+    // Every listener associated to the event is called.
 
   }, {
     key: "emit",
     value: function emit(eventName) {
-      if (_listeners[eventName] !== undefined) _listeners[eventName].forEach(function (callback) {
+      if (this.listeners[eventName] !== undefined) this.listeners[eventName].forEach(function (callback) {
         return callback();
-      });else throw new RangeError("".concat(eventName, " don't have any listeners to call."));
+      });
     } // Removes a listener from an event.
     // INPUT:
     // <-- eventName: string
@@ -86,15 +84,14 @@ function () {
   }, {
     key: "off",
     value: function off(eventName, callback) {
-      var listeners = _listeners[eventName];
+      var eventListeners = this.listeners[eventName];
 
-      if (listeners !== undefined) {
-        var indexOfCallbackToRemove = listeners.indexOf(callback);
-
-        if (indexOfCallbackToRemove !== -1) {
-          listeners[indexOfCallbackToRemove] = listeners[listeners.length - 1];
-          listeners.pop();
-        } else throw new RangeError("".concat(callback.name, " wasn't listening to ").concat(eventName, "."));
+      if (eventListeners !== undefined) {
+        var newListeners = eventListeners.filter(function (listener) {
+          return listener !== callback;
+        });
+        if (newListeners.length === eventListeners.length) throw new RangeError("".concat(callback.name, " wasn't listening to ").concat(eventName, "."));
+        this.listeners[eventName] = newListeners;
       } else throw new RangeError("".concat(eventName, " has no listeners to remove."));
     }
   }]);
@@ -102,11 +99,7 @@ function () {
   return EventEmitter;
 }();
 
-var _default = {
-  _listeners: _listeners,
-  EventEmitter: EventEmitter
-};
-exports["default"] = _default;
+exports["default"] = EventEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

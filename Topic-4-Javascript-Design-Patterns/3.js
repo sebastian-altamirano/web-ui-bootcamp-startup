@@ -1,11 +1,9 @@
 // EventEmitter class
 
-// Contains the listeners asocciated to an event through "on" method from
-// EventEmitter instances (or instances derived from EventEmitter).
-const _listeners = {};
-
 class EventEmitter {
-  constructor() {}
+  constructor() {
+    this.listeners = Object.create(null);
+  }
 
   // Adds a listener to an event.
   // INPUT:
@@ -19,9 +17,11 @@ class EventEmitter {
   // OUTPUT:
   // --> void
   // The callback has been added as a listener to the event.
+
   on(eventName, callback) {
-    if (_listeners[eventName] === undefined) _listeners[eventName] = [];
-    _listeners[eventName].push(callback);
+    if (this.listeners[eventName] === undefined) this.listeners[eventName] = [];
+    let eventListeners = this.listeners[eventName];
+    if (!eventListeners.includes(callback)) eventListeners.push(callback);
   }
 
   // Emits an event, calling every listener associated to it in consequence.
@@ -29,12 +29,12 @@ class EventEmitter {
   // <-- eventName: string
   // The event from which to call its listeners.
   // OUTPUT:
-  // --> RangeError
-  // The event has no listeners to call.
+  // --> void
+  // Every listener associated to the event is called.
+
   emit(eventName) {
-    if (_listeners[eventName] !== undefined)
-      _listeners[eventName].forEach(callback => callback());
-    else throw new RangeError(`${eventName} don't have any listeners to call.`);
+    if (this.listeners[eventName] !== undefined)
+      this.listeners[eventName].forEach(callback => callback());
   }
 
   // Removes a listener from an event.
@@ -48,17 +48,18 @@ class EventEmitter {
   // The event has no listeners no remove.
   // --> RangeError
   // The callback wasn't listening to the event.
+
   off(eventName, callback) {
-    let listeners = _listeners[eventName];
-    if (listeners !== undefined) {
-      const indexOfCallbackToRemove = listeners.indexOf(callback);
-      if (indexOfCallbackToRemove !== -1) {
-        listeners[indexOfCallbackToRemove] = listeners[listeners.length - 1];
-        listeners.pop();
-      } else
+    let eventListeners = this.listeners[eventName];
+    if (eventListeners !== undefined) {
+      let newListeners = eventListeners.filter(
+        listener => listener !== callback
+      );
+      if (newListeners.length === eventListeners.length)
         throw new RangeError(
           `${callback.name} wasn't listening to ${eventName}.`
         );
+      this.listeners[eventName] = newListeners;
     } else throw new RangeError(`${eventName} has no listeners to remove.`);
   }
 }
