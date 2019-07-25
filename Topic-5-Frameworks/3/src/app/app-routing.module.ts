@@ -9,6 +9,10 @@ import { MoviesResolverService } from "./services/movies-resolver.service";
 import { MovieResolverService } from "./services/movie-resolver.service";
 import { InvalidMovieIDGuard } from "./guards/invalid-movie-id.guard";
 
+// Resolvers take care of fetching the data from the database before loading
+// the route.
+// InvalidMovieIDGuard make sure that a route with an invalid id is redirected
+// to root route.
 const routes: Routes = [
   {
     path: "",

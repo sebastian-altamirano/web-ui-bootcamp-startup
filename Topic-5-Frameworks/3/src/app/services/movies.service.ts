@@ -6,8 +6,12 @@ import { openDB } from "idb";
   providedIn: "root"
 })
 export class MoviesService {
+  // This is for the purpose of InvalidMovieIDGuard, so that it can detect when
+  // a route is valid, and if not, redirect the page to root.
+  // A route is invalid when the movie id is not in the database.
   isValidMovieID: boolean = false;
 
+  // Opens or creates a database and initializes it with the movies.
   private async loadMovies() {
     const db = await openDB("movies", 1, {
       upgrade(db, oldVersion, newVersion, transaction) {
@@ -15,9 +19,9 @@ export class MoviesService {
           autoIncrement: true,
           keyPath: "id"
         });
-        // I save the data as Movie[], but the prototype is lost once in the
+        // Data is saved as Movie[], but the prototype is lost once in the
         // database. Instead of serializing i'll assign the prototype manually
-        // when necessary.
+        // if necessary.
         const movies: Movie[] = [
           new Movie("Fake Movie 1", 2005, "02:29"),
           new Movie("Fake Movie 2", 1998, "01:54"),
@@ -30,6 +34,7 @@ export class MoviesService {
     return db;
   }
 
+  // Returns a database transaction.
   private async getMovieTransaction() {
     const db = await this.loadMovies();
     const tx = await db.transaction("favoriteMovies", "readwrite");

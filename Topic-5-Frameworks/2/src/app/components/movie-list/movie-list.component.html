@@ -1,7 +1,7 @@
 <ng-template [ngIf]="movies?.length" [ngIfElse]="noMovies">
   <ul>
-    <li *ngFor="let movie of movies; let id = index">
-      <movie [movie]="movie" [id]="id + 1"></movie>
+    <li *ngFor="let movie of movies">
+      <movie [movie]="movie" [id]="movie.id"></movie>
     </li>
   </ul>
 </ng-template>

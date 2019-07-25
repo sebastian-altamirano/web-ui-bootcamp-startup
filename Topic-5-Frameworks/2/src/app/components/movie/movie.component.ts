@@ -14,8 +14,6 @@ export class MovieComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    // Since IndexedDB saves clasess as objects i've to manually assign the
-    // prototype.
-    Object.setPrototypeOf(this.movie, Movie.prototype);
+    console.log(this.movie, this.id);
   }
 }
