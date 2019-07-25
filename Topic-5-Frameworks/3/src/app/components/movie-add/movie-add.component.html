@@ -1,0 +1,26 @@
+<form #movieAddForm="ngForm" (ngSubmit)="addMovie()">
+  <div>
+    <label for="title">Title: </label>
+    <input
+      type="text"
+      required
+      [(ngModel)]="movie.title"
+      name="title"
+      id="title"
+    />
+  </div>
+  <div>
+    <label for="year">Year: </label>
+    <input type="number" [(ngModel)]="movie.year" name="year" id="year" />
+  </div>
+  <div>
+    <label for="duration">Duration: </label>
+    <input
+      type="time"
+      [(ngModel)]="movie.duration"
+      name="duration"
+      id="duration"
+    />
+  </div>
+  <button type="submit" [disabled]="!movieAddForm.form.valid">Add movie</button>
+</form>

@@ -1,0 +1,42 @@
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.movie {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+}
+
+.movie-title {
+  flex-basis: 70%;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-year,
+.movie-duration {
+  flex-basis: 15%;
+  text-align: right;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .movie {
+    flex-flow: column nowrap;
+    text-align: center;
+  }
+
+  .movie-year,
+  .movie-duration {
+    text-align: center;
+  }
+}

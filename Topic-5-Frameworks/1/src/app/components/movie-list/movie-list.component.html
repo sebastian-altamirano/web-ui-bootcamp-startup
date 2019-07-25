@@ -1,0 +1,13 @@
+<ng-template [ngIf]="movies?.length" [ngIfElse]="noMovies">
+  <ul>
+    <li *ngFor="let movie of movies">
+      <movie [movie]="movie"></movie>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #noMovies>
+  <div class="no-movies">
+    <p>There are no movies!</p>
+  </div>
+</ng-template>
