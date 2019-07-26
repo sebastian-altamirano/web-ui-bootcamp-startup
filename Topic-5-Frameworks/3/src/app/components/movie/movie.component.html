@@ -1,9 +1,0 @@
-<a [routerLink]="['/movie', id]">
-  <div class="movie">
-    <p class="movie-title">{{ movie.title }}</p>
-    <p class="movie-year">{{ movie.year || "-" }}</p>
-    <p class="movie-duration">
-      {{ movie.duration ? movie.duration.substring(1) + "hs" : "-" }}
-    </p>
-  </div>
-</a>
