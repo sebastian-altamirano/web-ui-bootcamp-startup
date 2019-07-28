@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+
+ul {
+  background-color: $secondary;
+  box-sizing: border-box;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  li {
+    background-color: $primary;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 1rem 2rem;
+    transition: background-color 0.5s, color 0.5s;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+
+    movie {
+      width: 100%;
+    }
+  }
+}
+
+.no-movies {
+  align-items: center;
+  background-color: $secondary;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 1.5rem;
+  height: 75vh;
+  justify-content: center;
+  padding: 1.5rem 2.5rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  ul {
+    padding: 0.25rem;
+
+    li {
+      margin: 0.75rem 0.5rem;
+    }
+  }
+}

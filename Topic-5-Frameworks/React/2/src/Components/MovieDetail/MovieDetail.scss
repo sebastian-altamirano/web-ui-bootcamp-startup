@@ -1,0 +1,39 @@
+@import "../../variables.scss";
+
+article {
+  padding: 1.5rem 2.5rem;
+
+  h2 {
+    background-color: $primary;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+  }
+
+  table {
+    background-color: $primary;
+    width: 100%;
+
+    th {
+      text-align: left;
+    }
+
+    td {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  article {
+    padding: 0.25rem;
+
+    h2,
+    table {
+      margin: 0.75rem 0.5rem;
+    }
+
+    table {
+      width: calc(100% - 1rem);
+    }
+  }
+}
