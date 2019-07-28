@@ -3,7 +3,7 @@
 ul {
   background-color: $secondary;
   box-sizing: border-box;
-  height: 75vh;
+  height: 100%;
   list-style: none;
   margin: 0;
   padding: 0.5rem;
@@ -46,11 +46,6 @@ li:hover {
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  ul,
-  .no-movies {
-    height: 85vh;
-  }
-
   ul {
     padding: 0.25rem;
   }

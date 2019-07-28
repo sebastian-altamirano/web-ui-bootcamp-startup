@@ -8,7 +8,7 @@ export default function MovieItem(props) {
       <div className="movie">
         <p className="movie-title">{props.movie.title}</p>
         <p className="movie-year">{props.movie.year || "-"}</p>
-        <p className="movie-duration">{props.movie.duration + "hs"}</p>
+        <p className="movie-duration">{props.movie.durationInHours}</p>
       </div>
     </Link>
   );

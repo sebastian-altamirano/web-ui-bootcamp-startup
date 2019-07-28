@@ -1,8 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from "react-router-dom";
 import "./App.scss";
-import MovieList from "./components/MovieList/MovieList";
-import MovieDetail from "./components/MovieDetail/MovieDetail";
+import MovieListResolver from "Components/MovieList/MovieListResolver";
+import MovieDetailGuard from "Components/MovieDetail/MovieDetailGuard";
 
 export default function App() {
   return (
@@ -12,8 +18,23 @@ export default function App() {
           <Link to="/">My favorite movies</Link>
         </h1>
       </header>
-      <Route path="/" exact component={MovieList} />
-      <Route path="/movie/:id" component={MovieDetail} />
+      <main>
+        <Switch>
+          <Route path="/" exact component={MovieListResolver} />
+          <Route
+            path="/movie/:id"
+            render={({
+              match: {
+                params: { id: movieID }
+              }
+            }) => {
+              movieID = Number(movieID);
+              return <MovieDetailGuard movieID={movieID} />;
+            }}
+          />
+        </Switch>
+        <Route path="*" render={() => <Redirect to="/" />} />
+      </main>
     </Router>
   );
 }

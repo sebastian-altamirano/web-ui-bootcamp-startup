@@ -24,3 +24,18 @@ header {
     color: white;
   }
 }
+
+main {
+  background-color: $secondary;
+  box-sizing: border-box;
+  color: white;
+  height: 75vh;
+  padding: 0rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  main {
+    height: 85vh;
+    padding: 0.25rem;
+  }
+}

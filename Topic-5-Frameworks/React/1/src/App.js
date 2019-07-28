@@ -8,7 +8,9 @@ export default function App() {
       <header>
         <h1>My favorite movies</h1>
       </header>
-      <MovieList />
+      <main>
+        <MovieList />
+      </main>
     </div>
   );
 }

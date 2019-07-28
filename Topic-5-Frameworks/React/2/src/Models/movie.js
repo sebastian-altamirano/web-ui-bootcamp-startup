@@ -4,4 +4,8 @@ export default class Movie {
     this.year = year;
     this.duration = duration;
   }
+
+  get durationInHours() {
+    return this.duration ? this.duration.substring(1) + "hs" : "-";
+  }
 }
