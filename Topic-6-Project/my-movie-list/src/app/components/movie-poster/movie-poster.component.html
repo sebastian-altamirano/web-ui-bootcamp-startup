@@ -1,0 +1,12 @@
+<div class="movie-poster">
+  <img
+    [lazyLoad]="movie.poster_path | moviePoster: size"
+    [defaultImage]="https:   //via.placeholder.com/500/2C3E50/BDC3C7/?text=LOAD"
+  />
+  <button (click)="addToFavorites($event)" class="favorite">
+    <span [ngClass]="getFavoriteIcons()" class="material-icons"></span>
+  </button>
+  <button (click)="addToWatch($event)" class="watch-later">
+    <span [ngClass]="getWatchLaterIcons()" class="material-icons"></span>
+  </button>
+</div>

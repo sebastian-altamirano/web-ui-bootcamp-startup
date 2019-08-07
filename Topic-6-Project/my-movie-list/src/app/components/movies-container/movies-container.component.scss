@@ -1,0 +1,41 @@
+@import '~spinkit/scss/variables';
+@import 'variables';
+
+main {
+  height: $movies-container-height;
+  overflow: auto;
+
+  .no-results-found {
+    align-items: center;
+    color: $wet-asphalt;
+    display: flex;
+    font-size: 3rem;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    user-select: none;
+  }
+}
+
+$spinkit-size: 3rem;
+$spinkit-spinner-margin: calc(
+    (#{$movies-container-height} / 2) - #{$spinkit-size}
+  )
+  auto;
+$spinkit-spinner-color: $asbestos;
+
+.sk-fading-circle {
+  height: $spinkit-size;
+  margin: $spinkit-spinner-margin;
+  width: $spinkit-size;
+
+  .sk-circle:before {
+    background-color: $spinkit-spinner-color;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  main {
+    height: $movies-container-mobile-height;
+  }
+}

@@ -1,0 +1,10 @@
+$material-design-icons-font-directory-path: '~material-design-icons-iconfont/dist/fonts/';
+
+@import '~material-design-icons-iconfont/src/material-design-icons';
+@import '~normalize.css/normalize.css';
+@import '~roboto-fontface/css/roboto/roboto-fontface.css';
+@import '~spinkit/scss/spinners/10-fading-circle';
+
+body {
+  font-family: 'Roboto';
+}

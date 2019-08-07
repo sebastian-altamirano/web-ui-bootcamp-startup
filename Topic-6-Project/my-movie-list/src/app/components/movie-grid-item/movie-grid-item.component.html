@@ -1,0 +1,7 @@
+<div [routerLink]="['/movie', movie.id]" class="movie">
+  <app-movie-poster size="m" [movie]="movie"></app-movie-poster>
+  <div class="movie-data">
+    <p [title]="movie.title" class="movie-title">{{ movie.title }}</p>
+    <p>{{ movie.release_date }}</p>
+  </div>
+</div>

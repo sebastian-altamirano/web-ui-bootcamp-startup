@@ -1,0 +1,19 @@
+<nav>
+  <ul>
+    <li>
+      <button title="Home" [routerLink]="'/'" (click)="loadPopularMovies()">
+        <span class="material-icons home"></span>
+      </button>
+    </li>
+    <li>
+      <button title="Favorites" [routerLink]="'/favorites'">
+        <span class="material-icons star"></span>
+      </button>
+    </li>
+    <li>
+      <button title="To-watch" [routerLink]="'/to-watch'">
+        <span class="material-icons watch_later"></span>
+      </button>
+    </li>
+  </ul>
+</nav>

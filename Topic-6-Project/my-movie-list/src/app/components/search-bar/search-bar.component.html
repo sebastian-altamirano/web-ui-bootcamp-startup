@@ -1,0 +1,21 @@
+<nav>
+  <ul>
+    <li>
+      <button title="Back" [disabled]="canGoBack" (click)="goBack()">
+        <span class="material-icons arrow_back"></span>
+      </button>
+    </li>
+    <li class="search">
+      <label title="Search" for="search">
+        <input
+          type="search"
+          placeholder="Search a movie..."
+          (ngModelChange)="updateSearch($event)"
+          [(ngModel)]="search"
+          name="search"
+          id="search"
+        />
+      </label>
+    </li>
+  </ul>
+</nav>
