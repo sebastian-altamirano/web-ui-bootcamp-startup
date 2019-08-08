@@ -3,11 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { MovieDetailComponent } from '@components/movie-detail/movie-detail.component';
 import { MoviesContainerComponent } from '@components/movies-container/movies-container.component';
 import { InvalidMovieIDGuard } from '@guards/invalid-movie-id.guard';
+import { AboutComponent } from '@components/about/about.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MoviesContainerComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: 'movie/:movieID',

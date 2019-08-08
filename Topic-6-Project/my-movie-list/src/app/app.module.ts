@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +22,7 @@ import { YoutubeVideoPipe } from './pipes/youtube-video.pipe';
 import { MovieBackdropPipe } from './pipes/movie-backdrop.pipe';
 import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
 import { IsSavedMoviePipe } from './pipes/is-saved-movie.pipe';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +44,9 @@ import { IsSavedMoviePipe } from './pipes/is-saved-movie.pipe';
     MovieBackdropPipe,
     MoviePosterComponent,
     IsSavedMoviePipe,
+    AboutComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    LazyLoadImageModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

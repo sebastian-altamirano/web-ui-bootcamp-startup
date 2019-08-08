@@ -1,0 +1,33 @@
+@import 'variables';
+
+a {
+  color: black;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+main {
+  box-sizing: border-box;
+  height: $movies-container-height;
+  overflow: auto;
+  padding: 0.5rem;
+
+  article {
+    background-color: $peter-river;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+}
+
+.not-endorsed {
+  text-transform: uppercase;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  main {
+    height: $movies-container-mobile-height;
+  }
+}
