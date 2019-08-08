@@ -1,0 +1,33 @@
+<main>
+  <article class="movie">
+    <div class="movie-details">
+      <app-movie-poster
+        [size]="mediaQuery.posterSize"
+        [movie]="movie"
+      ></app-movie-poster>
+      <div class="movie-data">
+        <h1>{{ movie.title }}</h1>
+        <p>{{ movie.vote_average }}</p>
+        <p>{{ movie.release_date }}</p>
+        <p>{{ movie.genres | movieGenres }}</p>
+        <p class="overview">{{ movie.overview }}</p>
+      </div>
+    </div>
+    <div class="movie-gallery">
+      <ul>
+        <li *ngFor="let trailer of movieTrailers">
+          <iframe
+            [width]="mediaQuery.videoWidth"
+            [src]="trailer | youtubeVideo"
+            [height]="mediaQuery.videoHeight"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </li>
+        <li *ngFor="let image of movieImages">
+          <img [src]="image | movieBackdrop: mediaQuery.imageSize" />
+        </li>
+      </ul>
+    </div>
+  </article>
+</main>

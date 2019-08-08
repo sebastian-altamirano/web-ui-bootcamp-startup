@@ -1,0 +1,10 @@
+<div [routerLink]="['/movie', movie.id]" class="movie">
+  <app-movie-poster size="s" [movie]="movie"></app-movie-poster>
+  <div class="movie-data">
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.vote_average }}</p>
+    <p>{{ movie.release_date }}</p>
+    <p>{{ movie.genre_ids | movieGenres }}</p>
+    <p class="overview">{{ movie.overview }}</p>
+  </div>
+</div>

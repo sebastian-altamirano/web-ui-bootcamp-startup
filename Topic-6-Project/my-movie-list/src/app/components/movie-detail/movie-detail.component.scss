@@ -1,0 +1,70 @@
+@import 'variables';
+
+main {
+  box-sizing: border-box;
+  height: $movies-container-height;
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+.movie {
+  background-color: $peter-river;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+
+  .movie-details {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    .movie-data {
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 0.5rem 1rem;
+      text-align: justify;
+
+      :not(.overview) {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .movie-gallery {
+    background-color: $belize-hole;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    margin: 1rem 0;
+    padding: 0.5rem;
+
+    ul {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: row nowrap;
+      list-style-type: none;
+      margin: 0;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      padding: 0;
+
+      img,
+      iframe {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  main {
+    height: $movies-container-mobile-height;
+  }
+
+  .movie .movie-details {
+    align-items: center;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+}

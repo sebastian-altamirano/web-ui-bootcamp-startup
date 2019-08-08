@@ -1,0 +1,55 @@
+<main>
+  <ng-container *ngIf="movies$ | async as movies; else loading">
+    <ng-container *ngIf="movies.length; else noResultsFound">
+      <!-- If grid-view -->
+      <ng-container *ngIf="configuration.view === 'grid'; else listView">
+        <app-movie-grid
+          [movies]="
+            movies
+              | moviesFilter
+                : configuration.filter
+                : configuration.isAscendingOrder
+          "
+          [isSearch]="isSearch"
+        >
+        </app-movie-grid>
+      </ng-container>
+
+      <!-- If list-view -->
+      <ng-template #listView>
+        <app-movie-list
+          [movies]="
+            movies
+              | moviesFilter
+                : configuration.filter
+                : configuration.isAscendingOrder
+          "
+          [isSearch]="isSearch"
+        >
+        </app-movie-list>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #noResultsFound>
+      <p class="no-results-found">Sorry, no movies could be found!</p>
+    </ng-template>
+  </ng-container>
+
+  <!-- If the movies haven't loaded yet: -->
+  <ng-template #loading>
+    <div class="sk-fading-circle">
+      <div class="sk-circle1 sk-circle"></div>
+      <div class="sk-circle2 sk-circle"></div>
+      <div class="sk-circle3 sk-circle"></div>
+      <div class="sk-circle4 sk-circle"></div>
+      <div class="sk-circle5 sk-circle"></div>
+      <div class="sk-circle6 sk-circle"></div>
+      <div class="sk-circle7 sk-circle"></div>
+      <div class="sk-circle8 sk-circle"></div>
+      <div class="sk-circle9 sk-circle"></div>
+      <div class="sk-circle10 sk-circle"></div>
+      <div class="sk-circle11 sk-circle"></div>
+      <div class="sk-circle12 sk-circle"></div>
+    </div>
+  </ng-template>
+</main>

@@ -1,0 +1,58 @@
+<nav>
+  <ul>
+    <li>
+      <label title="Grid-view" for="grid" class="view">
+        <input
+          value="grid"
+          type="radio"
+          (ngModelChange)="changeView($event)"
+          [(ngModel)]="configuration.view"
+          name="view"
+          id="grid"
+        />
+        <span class="material-icons grid_view"></span>
+      </label>
+    </li>
+    <li>
+      <label title="List-view" for="list" class="view">
+        <input
+          value="list"
+          type="radio"
+          (ngModelChange)="changeView($event)"
+          [(ngModel)]="configuration.view"
+          name="view"
+          id="list"
+        />
+        <span class="material-icons view_list"></span>
+      </label>
+    </li>
+    <li class="filter">
+      <label title="Filter" for="filter">
+        <span>Filter by: </span>
+        <select
+          (ngModelChange)="changeFilter($event)"
+          [(ngModel)]="configuration.filter"
+          name="filter"
+          id="filter"
+        >
+          <option value="popularity">Popularity</option>
+          <option value="title">Title</option>
+          <option value="release_date">Release date</option>
+          <option value="vote_average">Rating</option>
+        </select>
+      </label>
+    </li>
+    <li>
+      <label title="Order" for="order" class="order">
+        <input
+          type="checkbox"
+          (ngModelChange)="changeOrder($event)"
+          [(ngModel)]="configuration.isAscendingOrder"
+          name="order"
+          id="order"
+        />
+        <span [ngClass]="orderButtonIcon" class="material-icons"></span>
+      </label>
+    </li>
+  </ul>
+</nav>

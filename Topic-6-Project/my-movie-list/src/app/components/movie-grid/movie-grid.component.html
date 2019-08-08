@@ -1,0 +1,5 @@
+<ul #scrollableMovies (scrollEnd)="loadMoreMovies(gridList)" appScrollEnd>
+  <li *ngFor="let movie of movies">
+    <app-movie-grid-item [movie]="movie"></app-movie-grid-item>
+  </li>
+</ul>

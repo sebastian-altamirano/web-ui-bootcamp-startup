@@ -1,0 +1,9 @@
+<div class="movie-poster">
+  <img [src]="movie.poster_path | moviePoster: size" loading="lazy" />
+  <button (click)="addToFavorites($event)" class="favorite">
+    <span [ngClass]="getFavoriteIcons()" class="material-icons"></span>
+  </button>
+  <button (click)="addToWatch($event)" class="watch-later">
+    <span [ngClass]="getWatchLaterIcons()" class="material-icons"></span>
+  </button>
+</div>
